@@ -1,0 +1,1 @@
+  2022-02-23 4:44:56 PM EST: Starting composition “Comp 1”.  Output To: /Users/kashifhussain/Downloads/night_sky.png    2022-02-23 4:44:56 PM EST: Finished composition “Comp 1”.  Total Time Elapsed: 0 SecondsLog closed on 2022-02-23 at 4:44:56 PM EST
