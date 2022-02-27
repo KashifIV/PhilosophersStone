@@ -35,7 +35,10 @@ public class DialogEventMarker : MonoBehaviour
   }
 
   private void OnTriggerEnter2D(Collider2D other) {
-    if (other.gameObject.GetComponent<Player>() != null && !invoked){
+    if (!invoked 
+        && other.gameObject.GetComponent<Player>() != null 
+        && EventTracker.IssueEvent(EventType.Dialog, new GameEvent("Dialog Event"))
+        ){
       handler.InvokeDialogBox(dialogData); 
       invoked = true; 
     }

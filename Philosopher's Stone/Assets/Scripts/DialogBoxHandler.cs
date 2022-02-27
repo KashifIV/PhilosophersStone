@@ -14,15 +14,9 @@ public class DialogBoxHandler : MonoBehaviour
 
   List<DialogData> dialogData; 
   int dialogIndex; 
-  // Start is called before the first frame update
-  void Start()
-  {
-
-  }
 
   public void InvokeDialogBox(List<DialogData> data){
     dialogIndex = 0;
-    Debug.Log(data.Count); 
     UpdateDialogBox(data[dialogIndex]);
     dialogData = data; 
     animator.SetBool(IsOpened, true); 
@@ -37,7 +31,8 @@ public class DialogBoxHandler : MonoBehaviour
 
   public void OnContinue(){
     if (dialogIndex >= dialogData.Count){
-      animator.SetBool(IsOpened, false); 
+      animator.SetBool(IsOpened, false);
+      EventTracker.CloseEvent(EventType.Dialog);
     }
     else{
       UpdateDialogBox(dialogData[dialogIndex]); 
