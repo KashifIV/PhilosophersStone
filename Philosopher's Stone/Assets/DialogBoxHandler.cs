@@ -26,12 +26,9 @@ public class DialogBoxHandler : MonoBehaviour
     UpdateDialogBox(data[dialogIndex]);
     dialogData = data; 
     animator.SetBool(IsOpened, true); 
-    
   }
 
   void UpdateDialogBox(DialogData data){
-    Debug.Log(data.Name); 
-    Debug.Log(data.Text); 
     icon.sprite = data.Sprite; 
     characterName.text = data.Name; 
     content.text = data.Text; 

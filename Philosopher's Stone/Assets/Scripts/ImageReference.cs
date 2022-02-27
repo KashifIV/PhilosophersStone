@@ -15,7 +15,7 @@ public class ImageReference: MonoBehaviour{
   [SerializeField]
   Sprite defaultSprite; 
 
-  private void Start() {
+  private void Awake() {
     reference = new Dictionary<string, Sprite>();
     foreach(ReferenceContext context in referenceData){
       reference.Add(context.CharacterName, context.Image); 
