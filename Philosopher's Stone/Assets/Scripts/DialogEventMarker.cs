@@ -7,8 +7,8 @@ public class DialogEventMarker : MonoBehaviour
 {
   [TextArea]
   public string script;
-  public string[] characterNames; 
-  public Image[] characterImages;
+  public bool includeBattle;
+  public string battleMetadataFile;
 
   bool invoked = false; 
   DialogBoxHandler handler; 

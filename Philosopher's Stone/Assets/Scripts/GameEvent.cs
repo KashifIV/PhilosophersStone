@@ -5,6 +5,7 @@ public class GameEvent{
 
   public GameEvent(string name){
     EventName = name; 
+    Metadata = new Dictionary<string, dynamic>();
   }
   public GameEvent(string name, Dictionary<string, dynamic> metadata){
     EventName = name; 
