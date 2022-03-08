@@ -41,6 +41,14 @@ public class DialogEventMarker : MonoBehaviour
         ){
       handler.InvokeDialogBox(dialogData); 
       invoked = true; 
+      if (includeBattle){
+        EventTracker.IssueEvent(
+          EventType.Battle, 
+          new GameEvent(
+            "Battle", 
+            new Dictionary<string, string>{{"filename", battleMetadataFile}}
+        ));
+      }
     }
   }
 }

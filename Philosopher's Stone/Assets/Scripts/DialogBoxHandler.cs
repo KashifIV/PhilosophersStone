@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
 using UnityEngine;
 using TMPro; 
 
@@ -33,6 +34,9 @@ public class DialogBoxHandler : MonoBehaviour
     if (dialogIndex >= dialogData.Count){
       animator.SetBool(IsOpened, false);
       EventTracker.CloseEvent(EventType.Dialog);
+      if (EventTracker.ContainsEvent(EventType.Battle) && EventTracker.Events.Count == 1){
+        SceneManager.LoadScene(1); 
+      }
     }
     else{
       UpdateDialogBox(dialogData[dialogIndex]); 

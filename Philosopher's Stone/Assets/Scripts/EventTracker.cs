@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections; 
 
-public enum EventType{Dialog}; 
+public enum EventType{Dialog, Battle}; 
 public static class EventTracker{
   // only one of each type of event should be capable of being invoked at the same time. 
   public static Dictionary<EventType, GameEvent> Events {get; private set;} = new Dictionary<EventType, GameEvent>();
