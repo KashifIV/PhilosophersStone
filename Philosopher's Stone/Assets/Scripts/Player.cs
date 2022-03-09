@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     physics = this.GetComponent<Rigidbody2D>();
     spriteRenderer = this.GetComponent<SpriteRenderer>();
     animator = this.GetComponent<Animator>(); 
-    if (GameState.PantaristeStats == null){
+    if (GameState.PantaristeStats == null && !GameState.LoadFromSave){
       GameState.PantaristeOriginalStats = new CharacterStats(15, 10, 20, 8, 30);
       GameState.PantaristeStats =  new CharacterStats(15, 10, 20, 8, 30);
     }

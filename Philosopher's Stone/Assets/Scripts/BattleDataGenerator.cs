@@ -2,6 +2,8 @@ using System.IO;
 using System; 
 using UnityEngine; 
 
+// I was going to allow you to play with two members in your party but
+// ran out of time :s
 enum PlayerCharacters{Pantariste, Hypatia, Both}; 
 public class BattleDataGenerator : MonoBehaviour {
   public string battleName, location; 
