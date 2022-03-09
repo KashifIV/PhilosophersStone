@@ -39,7 +39,7 @@ public class DialogEventMarker : MonoBehaviour
         && other.gameObject.GetComponent<Player>() != null 
         && EventTracker.IssueEvent(EventType.Dialog, new GameEvent("Dialog Event"))
         ){
-      handler.InvokeDialogBox(dialogData); 
+      handler.InvokeDialogBox(dialogData, this.gameObject); 
       invoked = true; 
       if (includeBattle){
         EventTracker.IssueEvent(

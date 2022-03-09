@@ -1,1 +1,1 @@
-{"Player":[{"Name":"Pantariste","Stats":{"Attack":0,"Defense":0,"Health":0,"Speed":0}}],"Enemy":[{"Name":"Soldier","Stats":{"Attack":5,"Defense":1,"Health":10,"Speed":2}},{"Name":"Soldier","Stats":{"Attack":5,"Defense":1,"Health":10,"Speed":2}}],"Location":"Marsh"}
+{"Player":[{"Name":"Pantariste","Stats":{"Attack":0,"Defense":0,"Health":0,"Speed":0,"Power":0}}],"Enemy":[{"Name":"Soldier","Stats":{"Attack":11,"Defense":5,"Health":20,"Speed":6,"Power":0}},{"Name":"Soldier","Stats":{"Attack":11,"Defense":5,"Health":20,"Speed":6,"Power":0}}],"Location":"Marsh"}

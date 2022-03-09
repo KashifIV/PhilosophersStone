@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections; 
+using UnityEngine; 
 
 public enum EventType{Dialog, Battle}; 
-public static class EventTracker{
+public static class EventTracker{ 
   // only one of each type of event should be capable of being invoked at the same time. 
   public static Dictionary<EventType, GameEvent> Events {get; private set;} = new Dictionary<EventType, GameEvent>();
   public static bool IssueEvent(EventType eventKey, GameEvent gameEvent){

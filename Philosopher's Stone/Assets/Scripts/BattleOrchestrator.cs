@@ -68,17 +68,33 @@ public class BattleOrchestrator : MonoBehaviour
     yield return new WaitForSecondsRealtime(delayInSeconds); 
     function(); 
   }
+  IEnumerator ExecuteDelayed(AsyncOperation operation, DelayedFunction function){
+    while(!operation.isDone){
+      yield return null; 
+    }
+    function(); 
+  }
 
   private void Win(){
     Debug.Log("Player Wins!");
     uiHandler.victoryScreen.GetComponent<Animator>().SetTrigger("Animate"); 
-    StartCoroutine(ExecuteDelayed(5.0f, () => SceneManager.UnloadSceneAsync(1))); 
+    EventTracker.CloseEvent(EventType.Battle);
+    StartCoroutine(ExecuteDelayed(3.0f, () => {
+      AsyncOperation operation = SceneManager.UnloadSceneAsync(1);
+      GameState.PantaristeStats = currentCharacter.currentStats;
+      StartCoroutine(ExecuteDelayed(operation, () => {
+        EventTracker.CloseEvent(EventType.Battle);
+      }));
+    })); 
   }
   private void Lose(){
     Debug.Log("Player Loses!"); 
     uiHandler.victoryScreen.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "DEFEAT"; 
     uiHandler.victoryScreen.GetComponent<Animator>().SetTrigger("Animate"); 
-    StartCoroutine(ExecuteDelayed(5.0f, () => SceneManager.UnloadSceneAsync(1))); 
+    StartCoroutine(ExecuteDelayed(3.0f, () => {
+      SceneManager.LoadScene(0); 
+      EventTracker.CloseEvent(EventType.Battle);
+    })); 
   }
 
   private void PlayerAttack(CharRef player){
@@ -132,7 +148,7 @@ public class BattleOrchestrator : MonoBehaviour
     currentCharacter.currentStats.Power -= new int[]{0, 10, 30}[attackLevel - 1]; 
     uiHandler.UpdateSelectedCharacter(currentCharacter);
 
-    conductor.Enemies[index].currentStats.Health -= Math.Max(currentCharacter.currentStats.Attack-conductor.Enemies[index].currentStats.Defense, 0);
+    conductor.Enemies[index].currentStats.Health -= Math.Max(currentCharacter.currentStats.Attack*attackLevel-conductor.Enemies[index].currentStats.Defense, 0);
     if (conductor.Enemies[index].currentStats.Health <= 0){
       conductor.Enemies[index].gameObject.GetComponent<CharacterAnimHandler>().OnDeath();
       conductor.Enemies.RemoveAt(index);  
