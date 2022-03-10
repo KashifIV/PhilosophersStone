@@ -1,12 +1,18 @@
+# Video
+The video for this project is available here: https://youtu.be/SVWP2WXft68
+
+# Note on Attribution
+All open source credits have been provided in the credit scene and the `credits.txt` file in the assets folder. 
+
+All other art/animations has been created by myself or in collaboration with @Mazuri_ (https://twitter.com/Mazuri_) 
+
 # Major Group Project 1 (2D)
 
 You can work on this assignment alone or in a group of no more than 2 students.
 
 | Group Member Name          | GitHub Username    |
 | :------------------------- |:------------------:|
-| <first_name1> <last_name1> | <github_username1> |
-| <first_name2> <last_name2> | <github_username2> |
-
+| Kashif Hussain             | KashifIV           |
 _**Note:** The commit logs will be examined to be sure that both participants participated equally on this project._
 
 _**Note:** You can delete the unused rows from the table, if working alone._
