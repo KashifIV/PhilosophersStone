@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     spriteRenderer = this.GetComponent<SpriteRenderer>();
     animator = this.GetComponent<Animator>(); 
     if (GameState.PantaristeStats == null && !GameState.LoadFromSave){
-      GameState.PantaristeOriginalStats = new CharacterStats(15, 10, 20, 8, 30);
-      GameState.PantaristeStats =  new CharacterStats(15, 10, 20, 8, 30);
+      GameState.PantaristeOriginalStats = new CharacterStats(20, 10, 35, 8, 45);
+      GameState.PantaristeStats =  new CharacterStats(20, 10, 35, 8, 45);
     }
   }
 

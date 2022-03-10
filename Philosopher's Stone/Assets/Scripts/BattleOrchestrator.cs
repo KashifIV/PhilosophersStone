@@ -36,7 +36,7 @@ public class BattleOrchestrator : MonoBehaviour
       GameState.HypatiaStats = new CharacterStats(20, 6, 20, 6, 30); 
     }
     BattleData data = this.GetComponent<BattleDataGenerator>().LoadFromFile(filename); 
-
+    GameObject.Find("Marsh").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Locations/" + data.Location);
     List<CharRef> players, enemies; 
     players = new List<CharRef>(); 
     enemies = new List<CharRef>(); 
@@ -92,7 +92,7 @@ public class BattleOrchestrator : MonoBehaviour
     uiHandler.victoryScreen.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "DEFEAT"; 
     uiHandler.victoryScreen.GetComponent<Animator>().SetTrigger("Animate"); 
     StartCoroutine(ExecuteDelayed(3.0f, () => {
-      SceneManager.LoadScene(0); 
+      SceneManager.LoadScene(GameState.CurrentScene); 
       EventTracker.CloseEvent(EventType.Battle);
     })); 
   }
@@ -105,6 +105,7 @@ public class BattleOrchestrator : MonoBehaviour
     }
     currentCharacter = player; 
     uiHandler.UpdateSelectedCharacter(currentCharacter); 
+    uiHandler.EnableAttackButtons(currentCharacter);
   }
   private void EnemyAttack(CharRef enemy){
     Debug.Log("Enemy Attack"); 
@@ -115,7 +116,7 @@ public class BattleOrchestrator : MonoBehaviour
     enemy.gameObject.GetComponent<CharacterAnimHandler>().Attack(1);
     currentCharacter.currentStats.Health -=Math.Max(enemy.currentStats.Attack - currentCharacter.currentStats.Defense, 0); 
     uiHandler.UpdateSelectedCharacter(currentCharacter); 
-    StartCoroutine(ExecuteDelayed(2.0f, conductor.ExecuteNext)); 
+    StartCoroutine(ExecuteDelayed(4.0f, conductor.ExecuteNext)); 
   }
 
 

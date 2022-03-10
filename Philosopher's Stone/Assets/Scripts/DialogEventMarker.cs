@@ -8,6 +8,9 @@ public class DialogEventMarker : MonoBehaviour
   [TextArea]
   public string script;
   public bool includeBattle;
+
+  public bool includeSceneChange;
+  public int sceneNumber; 
   public string battleMetadataFile;
 
   bool invoked = false; 
@@ -48,6 +51,15 @@ public class DialogEventMarker : MonoBehaviour
             "Battle", 
             new Dictionary<string, string>{{"filename", battleMetadataFile}}
         ));
+      }
+      else if (includeSceneChange){
+        EventTracker.IssueEvent(
+          EventType.SceneChange,
+          new GameEvent(
+            "Scene Change",
+            new Dictionary<string, string>{{"sceneNumber", sceneNumber.ToString()}}
+          )
+        );
       }
     }
   }

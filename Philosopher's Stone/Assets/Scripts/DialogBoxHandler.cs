@@ -50,6 +50,12 @@ public class DialogBoxHandler : MonoBehaviour
         grid.SetActive(false); 
         isBattling = true; 
       }
+      else if (EventTracker.ContainsEvent(EventType.SceneChange)){
+        int sceneNumber; 
+        int.TryParse(EventTracker.Events[EventType.SceneChange].Metadata["sceneNumber"], out sceneNumber);
+        EventTracker.CloseEvent(EventType.SceneChange);
+        SceneManager.LoadScene(sceneNumber);
+      }
     }
     else{
       UpdateDialogBox(dialogData[dialogIndex]); 
@@ -60,8 +66,6 @@ public class DialogBoxHandler : MonoBehaviour
   void Update()
   {
     if (isBattling && !EventTracker.ContainsEvent(EventType.Battle)){
-      Debug.Log(isBattling); 
-      Debug.Log(EventTracker.ContainsEvent(EventType.Battle));
       isBattling = false; 
       grid.SetActive(true); 
       player.SetActive(true); 

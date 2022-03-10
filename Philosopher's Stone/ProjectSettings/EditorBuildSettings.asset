@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 65da736c96986404cb2eebbb270200f5
+  - enabled: 1
+    path: Assets/Scenes/EnterCastle.unity
+    guid: 9f1ee688da42f4b1dbe522955e391c19
+  - enabled: 1
+    path: Assets/Scenes/Castle.unity
+    guid: 62e91613aad934528847eb371446f3d5
+  - enabled: 1
+    path: Assets/Scenes/FinalBoss.unity
+    guid: 15361431d393a4fd59f537d29608be68
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: debc05c8af73948cfb3950677f5ee1ed
   m_configObjects: {}
