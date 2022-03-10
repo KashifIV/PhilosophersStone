@@ -1,0 +1,1 @@
+  2022-03-10 12:35:43 AM EST: Starting composition “Bridge”.  Output To: /Users/kashifhussain/Documents/gamedev/project1-missingsemicolon/Philosopher's Stone/Assets/Resources/Locations/Castle.png    2022-03-10 12:35:43 AM EST: Finished composition “Bridge”.  Total Time Elapsed: 0 SecondsLog closed on 2022-03-10 at 12:35:43 AM EST
